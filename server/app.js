@@ -99,7 +99,7 @@ export function createApp({ db, secret, getRules, production = false, distDir, a
   });
 
   app.get('/api/export.csv', requireAuth, (req, res) => {
-    res.set({ 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="taxjar-${new Date().toISOString().slice(0, 10)}.csv"` });
+    res.set({ 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="taxsafe-${new Date().toISOString().slice(0, 10)}.csv"` });
     res.send(toCsv(db.listEntries(req.user.id)));
   });
 

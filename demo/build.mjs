@@ -12,7 +12,7 @@ const get = ext => outputFiles.find(f => f.path.endsWith(ext)).text;
 const css = get('.css').replace(/(prefers-color-scheme:\s*dark\)\s*\{):root\{/, '$1:root:not([data-theme="light"]){')
   + ':root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}';
 const html = `<!DOCTYPE html><html lang="en-ZA"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>TaxJar · What’s safe to spend</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>TaxSafe · What’s safe to spend</title>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 <style>${css}</style></head><body><div id="root"></div><script>${get('.js').replace(/<\/script/g, '<\\/script')}</script></body></html>`;
 fs.mkdirSync(path.join(root, 'dist-demo'), { recursive: true });

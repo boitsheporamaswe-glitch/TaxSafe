@@ -8,11 +8,11 @@ import Dashboard from './Dashboard.jsx';
 const THEMES = [null, 'light', 'dark'];
 export default function App() {
   const { state, setState, live, status, signedIn, signedOut } = useLiveState();
-  const [theme, setTheme] = useState(() => { try { return localStorage.getItem('tj-theme') || null; } catch { return null; } });
+  const [theme, setTheme] = useState(() => { try { return localStorage.getItem('ts-theme') || null; } catch { return null; } });
   const [toast, setToast] = useState(null), timer = useRef();
   useEffect(() => {
     const el = document.documentElement; theme ? el.setAttribute('data-theme', theme) : el.removeAttribute('data-theme');
-    try { theme ? localStorage.setItem('tj-theme', theme) : localStorage.removeItem('tj-theme'); } catch { /* private mode */ }
+    try { theme ? localStorage.setItem('ts-theme', theme) : localStorage.removeItem('ts-theme'); } catch { /* private mode */ }
   }, [theme]);
   const notify = (msg, undo) => { clearTimeout(timer.current); setToast({ msg, undo }); timer.current = setTimeout(() => setToast(null), 6000); };
   const signOut = async () => { await api.logout(); signedOut(); };

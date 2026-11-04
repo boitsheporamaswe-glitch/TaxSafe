@@ -4,7 +4,7 @@ import { estimate } from '../../server/tax/engine.js';
 import { previewFor, makeEntry } from '../../server/tax/ledger.js';
 import { buildSnapshot } from '../../server/tax/snapshot.js';
 import { toCsv } from '../../server/tax/csv.js';
-const KEY = 'taxjar-demo-v4', R = { ...rules, stale: false };
+const KEY = 'taxsafe-demo-v4', R = { ...rules, stale: false };
 const def = () => ({ profile: { annualGross: 360000, annualExpenses: 0, annualRA: 0, onboarded: false }, entries: [] });
 const read = () => { try { return { ...def(), ...JSON.parse(localStorage.getItem(KEY)) }; } catch (e) { return def(); } };
 let db = read();
@@ -23,5 +23,5 @@ export const api = {
   bulk: async es => { const rate = estimate(db.profile, R).rate; db.entries.unshift(...es.map(e => makeEntry(e, rate))); return commit(); },
   remove: async id => { db.entries = db.entries.filter(e => e.id !== id); return commit(); },
   preview: async (kind, amount) => previewFor({ profile: db.profile, entries: db.entries }, R, { kind, amount }),
-  exportCsv: () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([toCsv(db.entries)], { type: 'text/csv' })); a.download = 'taxjar-demo.csv'; a.click(); },
+  exportCsv: () => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([toCsv(db.entries)], { type: 'text/csv' })); a.download = 'taxsafe-demo.csv'; a.click(); },
 };

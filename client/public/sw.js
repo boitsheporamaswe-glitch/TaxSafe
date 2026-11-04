@@ -1,5 +1,5 @@
 // Tiny service worker: lets the app install on a phone and open its shell offline. It never touches /api.
-const CACHE = 'taxjar-v1';
+const CACHE = 'taxsafe-v1';
 self.addEventListener('install', () => self.skipWaiting());
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CACHE).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => {

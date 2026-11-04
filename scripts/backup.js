@@ -2,9 +2,9 @@
 import Database from 'better-sqlite3';
 import fs from 'node:fs';
 import path from 'node:path';
-const src = process.env.DATABASE_PATH || path.join(import.meta.dirname, '..', 'data', 'taxjar.db');
+const src = process.env.DATABASE_PATH || path.join(import.meta.dirname, '..', 'data', 'taxsafe.db');
 const dir = path.join(path.dirname(src), 'backups'); fs.mkdirSync(dir, { recursive: true });
-const dest = path.join(dir, `taxjar-${new Date().toISOString().slice(0, 10)}.db`);
+const dest = path.join(dir, `taxsafe-${new Date().toISOString().slice(0, 10)}.db`);
 const db = new Database(src, { readonly: true });
 await db.backup(dest); db.close();
 for (const f of fs.readdirSync(dir).sort().slice(0, -14)) fs.unlinkSync(path.join(dir, f)); // keep the newest 14

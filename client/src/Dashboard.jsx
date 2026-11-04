@@ -71,7 +71,7 @@ export default function Dashboard({ state, setState, live, notify, onSignOut, th
   };
 
   return <div className="shell">
-    <header className="top"><div className="brand">Tax<b>Jar</b></div>
+    <header className="top"><div className="brand">Tax<b>Safe</b></div>
       <div className="meta"><small>South Africa · SARS {rules.year} · checked {rules.verifiedOn}</small>
         <span className={'live' + (live ? ' on' : '')}><i />{live ? 'Live' : 'Reconnecting'}</span></div></header>
     {rules.stale && <p className="banner" role="alert">These rates are for the {rules.year} tax year and a newer one may have started. Check SARS before relying on them.</p>}

@@ -1,8 +1,8 @@
-# TaxJar
+# TaxSafe
 
-**Know what's really yours to spend.** TaxJar is a tax set-aside tracker for South African drivers, couriers and freelancers. Every time money lands in your account it works out how much to put aside for SARS, and shows a live *safe balance*.
+**Know what's really yours to spend.** TaxSafe is a tax set-aside tracker for South African drivers, couriers and freelancers. Every time money lands in your account it works out how much to put aside for SARS, and shows a live *safe balance*.
 
-Gig workers don't have an employer withholding tax, so many face a huge bill at year end. Existing tools are either too generic or built for accountants. TaxJar is built for the person who just wants one number.
+Gig workers don't have an employer withholding tax, so many face a huge bill at year end. Existing tools are either too generic or built for accountants. TaxSafe is built for the person who just wants one number.
 
 ## Features
 
@@ -61,7 +61,7 @@ Copy `.env.example` to `.env` for production settings. `SESSION_SECRET` is **req
 
 ## Deploy
 
-**Docker:** `docker build -t taxjar . && docker run -p 4999:4999 -e SESSION_SECRET=... -e NODE_ENV=production -v taxjar-data:/app/data taxjar`
+**Docker:** `docker build -t taxsafe . && docker run -p 4999:4999 -e SESSION_SECRET=... -e NODE_ENV=production -v taxsafe-data:/app/data taxsafe`
 
 **Render:** New > Blueprint, pick the repo (`render.yaml` creates the service and a 1 GB disk for the database). Serve over HTTPS: cookies are marked `secure` in production.
 

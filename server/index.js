@@ -8,7 +8,7 @@ import { loadRules } from './rulesLoader.js';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const production = process.env.NODE_ENV === 'production';
-const dbFile = process.env.DATABASE_PATH || path.join(root, 'data', 'taxjar.db');
+const dbFile = process.env.DATABASE_PATH || path.join(root, 'data', 'taxsafe.db');
 
 function getSecret() { // the key that signs login tickets
   if (process.env.SESSION_SECRET) return process.env.SESSION_SECRET;
@@ -21,6 +21,6 @@ function getSecret() { // the key that signs login tickets
 const db = openDb(dbFile);
 const app = createApp({ db, secret: getSecret(), getRules: () => loadRules(), production, distDir: path.join(root, 'client', 'dist') });
 const port = process.env.PORT || 4999;
-const server = app.listen(port, () => console.log(`TaxJar on http://localhost:${port}`));
+const server = app.listen(port, () => console.log(`TaxSafe on http://localhost:${port}`));
 const stop = () => server.close(() => { db.close(); process.exit(0); });
 process.on('SIGTERM', stop); process.on('SIGINT', stop);

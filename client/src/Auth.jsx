@@ -7,7 +7,7 @@ export default function Auth({ onDone }) {
     try { onDone(await api[mode](email, pw)); } catch (x) { setErr(x.message); } finally { setBusy(false); }
   };
   return <div className="auth"><div className="hero authcard">
-    <div className="brand">Tax<b>Jar</b></div>
+    <div className="brand">Tax<b>Safe</b></div>
     <h1>Know what&rsquo;s really yours to spend.</h1>
     <p className="lbl">Set aside the right tax from every payment. Built for drivers, couriers and freelancers in South Africa.</p>
     <form onSubmit={submit}>
