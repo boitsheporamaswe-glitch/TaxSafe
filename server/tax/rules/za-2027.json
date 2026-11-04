@@ -1,0 +1,50 @@
+{
+  "country": "ZA",
+  "year": "2026/27",
+  "verifiedOn": "2026-11-01",
+  "sources": [
+    "SARS Budget 2026 tax guide (brackets, rebate)",
+    "SARS rates of tax for individuals 2026/27"
+  ],
+  "primaryRebate": 17820,
+  "retirementPct": 0.275,
+  "retirementCap": 430000,
+  "brackets": [
+    [
+      245100,
+      0.18
+    ],
+    [
+      383100,
+      0.26
+    ],
+    [
+      530200,
+      0.31
+    ],
+    [
+      695800,
+      0.36
+    ],
+    [
+      887000,
+      0.39
+    ],
+    [
+      1878600,
+      0.41
+    ],
+    [
+      null,
+      0.45
+    ]
+  ],
+  "from": "2026-03-01",
+  "to": "2027-02-28",
+  "changelog": [
+    {
+      "date": "2026-11-01",
+      "note": "SARS 2026/27 brackets (3.4% inflation adjustment), primary rebate R17 820, retirement annuity cap R430 000."
+    }
+  ]
+}

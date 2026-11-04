@@ -1,0 +1,16 @@
+# One-click deploy on Render: New > Blueprint > pick this repo. A persistent disk needs a paid plan.
+services:
+  - type: web
+    name: taxjar
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/healthz
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_PATH
+        value: /var/data/taxjar.db
+    disk:
+      name: taxjar-data
+      mountPath: /var/data
+      sizeGB: 1

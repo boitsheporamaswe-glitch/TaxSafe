@@ -1,0 +1,32 @@
+{
+  "name": "taxjar",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n api,web -c cyan,magenta \"node --watch server/index.js\" \"npm run dev -w client\"",
+    "build": "npm run build -w client",
+    "start": "node server/index.js",
+    "test": "node --test server/test/*.test.js client/src/*.test.js",
+    "build:demo": "node demo/build.mjs",
+    "backup": "node scripts/backup.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.7.3",
+    "helmet": "^8.3.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1",
+    "esbuild": "^0.21.5"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "description": "Tax set-aside tracker for South African gig workers and freelancers",
+  "license": "MIT"
+}
